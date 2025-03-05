@@ -3,9 +3,8 @@ import pandas as pd
 import plotly.express as px
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
-import os 
-
-load_dotenv()
+import os
+load_dotenv(override=True)
 
 USER = os.getenv("DB_USER")
 PASSWORD = os.getenv("DB_PASSWORD")
@@ -18,76 +17,28 @@ def get_data(query):
     with engine.connect() as conn:
         return pd.read_sql(query, conn)
 
-st.title("Dashboard de Contrataciones")
+st.title("dashboard accidentes de trafico")
 
-# Hires by technology (pie chart)
-st.subheader("Contrataciones por Tecnología")
-query_tech = """
-SELECT technology, COUNT(*) AS hires 
-FROM candidates 
-WHERE code_challenge_score >= 7 AND technical_interview_score >= 7
-GROUP BY technology
-"""
-df_tech = get_data(query_tech)
-fig_tech = px.pie(
-    df_tech, 
-    names='technology', 
-    values='hires', 
-    labels={"technology":"tegnologia", "hires":"contrataciones"})
-st.plotly_chart(fig_tech)
+df = get_data("SELECT * FROM accidents;")
 
-#Hires by year (horizontal bar chart)
-st.subheader("Contrataciones por Año")
-query_year = """
-SELECT YEAR(application_date) AS year, COUNT(*) AS hires 
-FROM candidates 
-WHERE code_challenge_score >= 7 AND technical_interview_score >= 7
-GROUP BY year
-ORDER BY year
-"""
-df_year = get_data(query_year)
-fig_year = px.bar(
-    df_year, 
-    x='year', 
-    y='hires',
-    color="year", 
-    labels={"year":"año", "hires":"contrataciones"})
-st.plotly_chart(fig_year)
+st.subheader("vist previa")
+st.dataframe(df.head())
 
-#Hires by seniority (bar chart)
-st.subheader("Contrataciones por antiguedad")
-query_seniority = """
-SELECT seniority, COUNT(*) AS hires 
-FROM candidates 
-WHERE code_challenge_score >= 7 AND technical_interview_score >= 7
-GROUP BY seniority
-"""
-df_seniority = get_data(query_seniority)
-fig_seniority = px.bar(
-    df_seniority, 
-    x='seniority', 
-    y='hires',
-    color="seniority",
-    labels={"seniority":"antiguedad", "hires":"contrataciones"})
-st.plotly_chart(fig_seniority)
+#funcion
+def plot_column(df, col):
+    st.subheader(f"estadisticas de la columna: {col}")
+    if pd.api.types.is_numeric_dtype(df[col]):
+        fig_hist = px.histogram(df, x=col, title=f'distribucion de {col}')
+        st.plotly_chart(fig_hist)
+        fig_box = px.box(df, y=col, title=f'box plot de {col}')
+        st.plotly_chart(fig_box)
+    else:
+        counts = df[col].value_counts().reset_index()
+        counts.columns = [col, 'count']
+        fig_bar = px.bar(counts, x=col, y='count', title=f'frecuencia de {col}')
+        st.plotly_chart(fig_bar)
 
-#Hires por País (Multiline Chart)
-st.subheader("Contrataciones por País a lo largo del Tiempo")
-query_country = """
-SELECT YEAR(application_date) AS year, country, COUNT(*) AS hires
-FROM candidates
-WHERE country IN ('USA', 'Brazil', 'Colombia', 'Ecuador')
-AND code_challenge_score >= 7 AND technical_interview_score >= 7
-GROUP BY year, country
-ORDER BY year
-"""
-df_country = get_data(query_country)
-fig_country = px.line(
-    df_country, 
-    x="year", 
-    y="hires", 
-    color="country", 
-    labels={"year":"año", "hires":"contrataciones", "country":"Pais"})
-
-st.plotly_chart(fig_country)
-
+for col in df.columns:
+    if col == 'id':
+        continue
+    plot_column(df, col)
