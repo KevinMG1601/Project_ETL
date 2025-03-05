@@ -1,6 +1,5 @@
 # Project_ETL
 
-
 primero creamos un entrono virtual de python
 
 # librerias requeridas para el entorno virtual de python
@@ -8,5 +7,8 @@ primero creamos un entrono virtual de python
 -ipykernel
 -numpy
 -SQLAlchemy
--pymysql
 -dotenv
+-plotly
+-streamlit
+
+# crear el database con el nombre project_etl
