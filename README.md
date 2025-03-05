@@ -7,3 +7,6 @@ primero creamos un entrono virtual de python
 -pandas
 -ipykernel
 -numpy
+-SQLAlchemy
+-pymysql
+-dotenv
