@@ -17,17 +17,17 @@ def get_data(query):
     with engine.connect() as conn:
         return pd.read_sql(query, conn)
 
-st.set_page_config(page_title="Dashboard de Accidentes", layout="wide")
-st.title("Análisis de Accidentes")
+st.set_page_config(page_title="Accident Dashboard", layout="wide")
+st.title("Accident Analysis")
 
 df = get_data("SELECT * FROM accidents;")
-st.write("Cantidad de registros:", len(df))
-st.subheader("Vista previa de datos")
+st.write("Number of records:", len(df))
+st.subheader("Data preview")
 st.dataframe(df.head())
 
 #GRAFICAS 
 
-st.subheader("Gráfica del Control de Tráfico en el Accidente")
+st.subheader("Accident Traffic Control Graph")
 query_traffic = """
 SELECT traffic_control_device, COUNT(*) AS total 
 FROM accidents 
@@ -38,10 +38,10 @@ fig_traffic = px.pie(
     df_traffic, 
     names='traffic_control_device', 
     values='total', 
-    title="Distribución de Dispositivos de Control de Tráfico")
+    title="Distribution of Traffic Control Devices")
 st.plotly_chart(fig_traffic)
 
-st.subheader("Accidentes por Condición Climática")
+st.subheader("Accidents by Weather Conditions")
 query_weather = """
 SELECT weather_condition, COUNT(*) AS total 
 FROM accidents 
@@ -52,10 +52,10 @@ fig_weather = px.bar(
     df_weather, 
     x='weather_condition', 
     y='total', 
-    title="Accidentes según Condición Climática")
+    title="Accidents by Weather Condition")
 st.plotly_chart(fig_weather)
 
-st.subheader("Iluminación en los Accidentes")
+st.subheader("Lighting in Accidents")
 query_lighting = """
 SELECT lighting_condition, COUNT(*) AS total 
 FROM accidents 
@@ -66,10 +66,10 @@ fig_lighting = px.pie(
     df_lighting, 
     names='lighting_condition', 
     values='total', 
-    title="Distribución de Condiciones de Iluminación")
+    title="Distribution of Lighting Conditions")
 st.plotly_chart(fig_lighting)
 
-st.subheader("Tipo de Primer Choque")
+st.subheader("Type of First Shock")
 query_crash_type = """
 SELECT first_crash_type, COUNT(*) AS total 
 FROM accidents 
@@ -80,10 +80,10 @@ fig_crash_type = px.bar(
     df_crash_type, 
     x='first_crash_type', 
     y='total', 
-    title="Accidentes por Tipo de Primer Choque")
+    title="Accidents by Type of First Crash")
 st.plotly_chart(fig_crash_type)
 
-st.subheader("Accidentes por Tipo de Vía")
+st.subheader("Accidents by Type of Road")
 query_trafficway = """
 SELECT trafficway_type, COUNT(*) AS total 
 FROM accidents 
@@ -94,10 +94,10 @@ fig_trafficway = px.pie(
     df_trafficway, 
     names='trafficway_type', 
     values='total', 
-    title="Accidentes por Tipo de Vía")
+    title="Accidents by Type of Road")
 st.plotly_chart(fig_trafficway)
 
-st.subheader("Condiciones de la Superficie de la Carretera")
+st.subheader("Road Surface Conditions")
 query_surface = """
 SELECT roadway_surface_cond, COUNT(*) AS total 
 FROM accidents 
@@ -108,11 +108,11 @@ fig_surface = px.bar(
     df_surface, 
     x='roadway_surface_cond', 
     y='total', 
-    title="Accidentes por Condición de la Superficie de la Carretera",
+    title="Accidents due to Road Surface Conditions",
     color = "roadway_surface_cond")
 st.plotly_chart(fig_surface)
 
-st.subheader("Relación con Intersecciones")
+st.subheader("Relationship with Intersections")
 query_intersection = """
 SELECT intersection_related_i, COUNT(*) AS total 
 FROM accidents 
@@ -123,10 +123,10 @@ fig_intersection = px.pie(
     df_intersection, 
     names='intersection_related_i', 
     values='total', 
-    title="Accidentes Relacionados con Intersecciones")
+    title="Intersection-Related Accidents")
 st.plotly_chart(fig_intersection)
 
-st.subheader("Causa Principal del Accidente")
+st.subheader("Main Cause of Accident")
 query_cause = """
 SELECT prim_contributory_cause, COUNT(*) AS total 
 FROM accidents 
