@@ -18,21 +18,7 @@ st.set_page_config(page_title="Accident Dashboard", layout="wide")
 st.title("Traffic Accident Analysis")
 
 query = """
-SELECT 
-    traffic_control_device, 
-    weather_condition, 
-    lighting_condition, 
-    first_crash_type, 
-    trafficway_type, 
-    roadway_surface_cond, 
-    intersection_related_i, 
-    prim_contributory_cause, 
-    most_severe_injury, 
-    crash_hour, 
-    crash_day_of_week, 
-    crash_month, 
-    crash_year 
-FROM accidents
+SELECT * FROM accidents_clean
 """
 
 @st.cache_data
