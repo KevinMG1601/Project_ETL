@@ -1,4 +1,4 @@
-# Project_ETL
+so# Project_ETL
 
 primero creamos un entrono virtual de python
 
@@ -9,6 +9,6 @@ primero creamos un entrono virtual de python
 -SQLAlchemy
 -dotenv
 -plotly
--streamlit
+-
 
 # crear el database con el nombre project_etl
