@@ -1,25 +1,18 @@
+from datetime import datetime, timedelta
+from airflow import DAG
+from airflow.operators.python import PythonOperator
 import sys
 import os
-import json
-import pandas as pd
-import logging
-from datetime import datetime, timedelta
-from airflow.decorators import dag, task
 
+# Agrega la raíz del proyecto al sys.path para que se reconozca src
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 sys.path.append(project_root)
 
-#from tasks.etl import *
-import tasks.etl as etl
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s %(message)s",
-    datefmt="%d/%m/%Y %I:%M:%S %p"
-)
+# Importar funciones desde etl
+from tasks.etl import extract_task, transform_task, load_task, validate_task
 
 default_args = {
-    'owner': 'sebasbelmos',
+    'owner': 'kevinmg',
     'depends_on_past': False,
     'email_on_failure': False,
     'email_on_retry': False,
@@ -27,46 +20,34 @@ default_args = {
     'retry_delay': timedelta(minutes=5),
 }
 
-
-@dag(
+with DAG(
+    dag_id='accidents_etl_pipeline',
+    description='ETL pipeline for Traffic Accidents dataset',
     default_args=default_args,
-    description='ETL pipeline for LinkedIn Job Postings data',
-    schedule_interval=timedelta(days=1),  # Run daily
-    start_date=datetime(2025, 3, 26),  # Start date (today)
+    schedule_interval=timedelta(days=1),
+    start_date=datetime(2025, 4, 5),
     catchup=False,
-    max_active_runs=1,
-)
-def linkedin_etl_pipeline():
-    """
-    This DAG executes the ETL pipeline for the LinkedIn Job Postings project.
-    It extracts data from the raw schema, transforms it, loads it into the cleaned schema,
-    and validates the data distribution.
-    """
+    tags=['accidents', 'ETL'],
+) as dag:
 
-    @task
-    def extract():
-        return etl.extract_task()
+    extract = PythonOperator(
+        task_id='extract_data',
+        python_callable=extract_task
+    )
 
-    @task
-    def transform(df_json):
-        return etl.transform_task(df_json)
+    transform = PythonOperator(
+        task_id='transform_data',
+        python_callable=transform_task
+    )
 
-    @task
-    def load(df_json):
-        return etl.load_task(df_json)
+    load = PythonOperator(
+        task_id='load_data',
+        python_callable=load_task
+    )
 
-    @task
-    def validate(df_json):
-        return etl.validate_task(df_json)
-    
-    #extracted_data = extract_task()
-    #transformed_data = transform_task(extracted_data)
-    #loaded_data = load_task(transformed_data)
-    #validate_task(loaded_data)
-    
-    extracted_data = extract()
-    transformed_data = transform(extracted_data)
-    loaded_data = load(transformed_data)
-    validate(loaded_data)
-    
-linkedin_dag = linkedin_etl_pipeline()
+    validate = PythonOperator(
+        task_id='validate_data',
+        python_callable=validate_task
+    )
+
+    extract >> transform >> load >> validate
