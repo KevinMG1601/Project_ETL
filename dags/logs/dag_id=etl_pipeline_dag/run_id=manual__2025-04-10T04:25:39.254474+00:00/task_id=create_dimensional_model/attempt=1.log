@@ -1,0 +1,15 @@
+[2025-04-10T04:25:46.732+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_pipeline_dag.create_dimensional_model manual__2025-04-10T04:25:39.254474+00:00 [queued]>
+[2025-04-10T04:25:46.744+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_pipeline_dag.create_dimensional_model manual__2025-04-10T04:25:39.254474+00:00 [queued]>
+[2025-04-10T04:25:46.745+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2025-04-10T04:25:46.792+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): create_dimensional_model> on 2025-04-10 04:25:39.254474+00:00
+[2025-04-10T04:25:46.798+0000] {standard_task_runner.py:57} INFO - Started process 343 to run task
+[2025-04-10T04:25:46.801+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'etl_pipeline_dag', 'create_dimensional_model', 'manual__2025-04-10T04:25:39.254474+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/etl_pipeline_dag.py', '--cfg-path', '/tmp/tmpb50am4yj']
+[2025-04-10T04:25:46.803+0000] {standard_task_runner.py:85} INFO - Job 32: Subtask create_dimensional_model
+[2025-04-10T04:25:46.887+0000] {task_command.py:416} INFO - Running <TaskInstance: etl_pipeline_dag.create_dimensional_model manual__2025-04-10T04:25:39.254474+00:00 [running]> on host da02d6d66f1a
+[2025-04-10T04:25:47.071+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='simón' AIRFLOW_CTX_DAG_ID='etl_pipeline_dag' AIRFLOW_CTX_TASK_ID='create_dimensional_model' AIRFLOW_CTX_EXECUTION_DATE='2025-04-10T04:25:39.254474+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-10T04:25:39.254474+00:00'
+[2025-04-10T04:25:47.949+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.9/site-packages/pyarrow/pandas_compat.py:373 FutureWarning: is_sparse is deprecated and will be removed in a future version. Check `isinstance(dtype, pd.SparseDtype)` instead.
+[2025-04-10T04:25:48.030+0000] {logging_mixin.py:151} INFO - Modelo dimensional generado y guardado.
+[2025-04-10T04:25:48.044+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-04-10T04:25:48.061+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=etl_pipeline_dag, task_id=create_dimensional_model, execution_date=20250410T042539, start_date=20250410T042546, end_date=20250410T042548
+[2025-04-10T04:25:48.239+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-04-10T04:25:48.266+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check
