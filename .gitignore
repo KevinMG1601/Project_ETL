@@ -178,5 +178,7 @@ airflow/airflow.cfg
 airflow/airflow.db
 airflow-local-settings.py
 airflow/standalone_admin_password.txt
-standard_logging.conf
 airflow/webserver_config.py
+
+.db
+.cfg
