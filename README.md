@@ -30,13 +30,9 @@ The objective of this project is to perform an in-depth exploratory analysis of 
 * **crash_day_of_week:** The day of the week the accident occurred.
 * **crash_month:** The month the accident occurred.
 
-## Project Structure
+## Pipeline 
+![Pipeline_ETL](/assets/pipeline_etl.png "This is a pipeline")
 
-| Folder/File   | Description   |
-| ------------- |:-------------:|
-| left foo      | right foo     |
-| left bar      | right bar     |
-| left baz      | right baz     |
 
 ## Tools and Libraries
 El proyecto utiliza diversas herramientas de software para construir el flujo ETL, procesar los datos y modelarlos para análisis posterior:
@@ -89,6 +85,10 @@ Despues ejecute:
     airflow standalone 
 
 ya por ultimo vaya a localhost:8080 e inicia sesion con el password y user que te da airflow.
+
+## Modelo dimensional
+
+![modelo_dimensional](/assets/modelo_dimensional.jpg)
 
 ## Authors
 #### Created by:
