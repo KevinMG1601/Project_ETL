@@ -39,7 +39,57 @@ The objective of this project is to perform an in-depth exploratory analysis of 
 | left baz      | right baz     |
 
 ## Tools and Libraries
+El proyecto utiliza diversas herramientas de software para construir el flujo ETL, procesar los datos y modelarlos para análisis posterior:
+
+* Python 3.11.9
+* Apache Airflow – Orquestación de tareas ETL.
+* Pandas – Manipulación y transformación de datos.
+* SQLAlchemy – Conexión y ejecución de consultas SQL.
+* MariaDB – Almacenamiento de datos crudos, limpios y modelo dimensional.
+* dotenv – Gestión de variables de entorno.
+* Kaggle API – Descarga de datasets desde la plataforma.
+
 ## Installation and Setup
+1. Clona el repositorio:
+    ```bash
+    git clone https://github.com/KevinMG1601/Project_ETL.git
+    cd Project_ETL
+    ```
+
+2. Crea y activa un entorno virtual:
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+3. Instala las dependencias:
+    ```bash
+    pip install -r requirements.txt
+
+## Configuración
+
+### 1. Configura el archivo `.env`
+
+* DB_USER = ""
+* DB_PASSWORD = ""
+* DB_PORT = ""
+* DB_HOST = ""
+* DB_RAW = "raw_accidents"
+* DB_CLEAN = "clean_accidents"
+* DB_MODEL = "model_accidents"
+
+### 2. Airflow 
+
+Ejecutar el primer code:
+    ```bash
+    export AIRFLOW_HOME="$(pwd)/airflow”
+
+Despues ejecute:
+    ```bash
+    airflow standalone 
+
+ya por ultimo vaya a localhost:8080 e inicia sesion con el password y user que te da airflow.
+
 ## Authors
 #### Created by:
 
