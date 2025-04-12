@@ -130,95 +130,59 @@ def create_model_task():
 
 def load_model_data_task(**kwargs):
     """
-    Carga los datos transformados a las tablas del modelo dimensional (dimensional model).
+    Carga los datos transformados a las tablas del modelo dimensional.
     Inserta datos en las tablas de dimensión y luego en la tabla de hechos.
     """
+    import pandas as pd
+    from sqlalchemy import create_engine
+    from airflow.exceptions import AirflowFailException
+    from src.connection.connection import create_engine_connection
+
     engine_clean = create_engine_connection("DB_CLEAN")
     engine_model = create_engine_connection("DB_MODEL")
 
     try:
-        query = "SELECT * FROM clean_accidents"
-        df_clean = pd.read_sql(query, engine_clean)
+        df_clean = pd.read_sql("SELECT * FROM clean_accidents", engine_clean)
 
         if df_clean.empty:
             raise AirflowFailException("No hay datos en la tabla clean_accidents para cargar al modelo.")
-        
+
         print(f"Se han extraído {len(df_clean)} registros de la tabla clean_accidents.")
 
-        lesion_data = df_clean[['most_severe_injury']].drop_duplicates()
-        lesion_data.to_sql('dim_lesion', con=engine_model, if_exists='append', index=False)
-
-        causa_data = df_clean[['prim_contributory_cause']].drop_duplicates()
-        causa_data.to_sql('dim_causa', con=engine_model, if_exists='append', index=False)
-
-        trafico_data = df_clean[['intersection_related_i', 'traffic_control_device', 'trafficway_type']].drop_duplicates()
-        trafico_data.to_sql('dim_trafico', con=engine_model, if_exists='append', index=False)
-
-        clima_data = df_clean[['lighting_condition', 'roadway_surface_cond', 'weather_condition']].drop_duplicates()
-        clima_data.to_sql('dim_clima', con=engine_model, if_exists='append', index=False)
-
-        tiempo_data = df_clean[['crash_day_of_week', 'crash_hour', 'crash_month', 'crash_year']].drop_duplicates()
-        tiempo_data.to_sql('dim_tiempo', con=engine_model, if_exists='append', index=False)
+        df_clean[['most_severe_injury']].drop_duplicates().to_sql('dim_lesion', con=engine_model, if_exists='append', index=False, chunksize=1000)
+        df_clean[['prim_contributory_cause']].drop_duplicates().to_sql('dim_causa', con=engine_model, if_exists='append', index=False, chunksize=1000)
+        df_clean[['intersection_related_i', 'traffic_control_device', 'trafficway_type']].drop_duplicates().to_sql('dim_trafico', con=engine_model, if_exists='append', index=False, chunksize=1000)
+        df_clean[['lighting_condition', 'roadway_surface_cond', 'weather_condition']].drop_duplicates().to_sql('dim_clima', con=engine_model, if_exists='append', index=False, chunksize=1000)
+        df_clean[['crash_day_of_week', 'crash_hour', 'crash_month', 'crash_year']].drop_duplicates().to_sql('dim_tiempo', con=engine_model, if_exists='append', index=False, chunksize=1000)
 
         print("Datos cargados en las tablas de dimensiones exitosamente.")
 
-        for _, row in df_clean.iterrows():
-            insert_query = text("""
-                INSERT INTO hechos_accidentes (
-                    crash_type, first_crash_type, id_causa, id_clima, id_lesion, id_tiempo, id_trafico,
-                    num_units, injuries_total, injuries_fatal, injuries_incapacitating, injuries_non_incapacitating,
-                    injuries_reported_not_evident, injuries_no_indication, crash_day_of_month, damage_min, damage_max
-                )
-                SELECT 
-                    :crash_type, :first_crash_type, 
-                    c.id_causa, 
-                    cl.id_clima, 
-                    l.id_lesion, 
-                    t.id_tiempo, 
-                    tr.id_trafico,
-                    :num_units, :injuries_total, :injuries_fatal, :injuries_incapacitating, :injuries_non_incapacitating,
-                    :injuries_reported_not_evident, :injuries_no_indication, :crash_day_of_month, :damage_min, :damage_max
-                FROM 
-                    dim_causa c
-                    JOIN dim_clima cl ON cl.lighting_condition = :lighting_condition
-                    JOIN dim_lesion l ON l.most_severe_injury = :most_severe_injury
-                    JOIN dim_tiempo t ON t.crash_day_of_week = :crash_day_of_week AND t.crash_hour = :crash_hour
-                    JOIN dim_trafico tr ON tr.intersection_related_i = :intersection_related_i
-                WHERE 
-                    c.prim_contributory_cause = :prim_contributory_cause
-                    AND cl.weather_condition = :weather_condition
-            """)
+        dim_lesion = pd.read_sql("SELECT * FROM dim_lesion", engine_model)
+        dim_causa = pd.read_sql("SELECT * FROM dim_causa", engine_model)
+        dim_trafico = pd.read_sql("SELECT * FROM dim_trafico", engine_model)
+        dim_clima = pd.read_sql("SELECT * FROM dim_clima", engine_model)
+        dim_tiempo = pd.read_sql("SELECT * FROM dim_tiempo", engine_model)
 
-            engine_model.execute(insert_query, {
-                'crash_type': row['crash_type'],
-                'first_crash_type': row['first_crash_type'],
-                'prim_contributory_cause': row['prim_contributory_cause'],
-                'lighting_condition': row['lighting_condition'],
-                'most_severe_injury': row['most_severe_injury'],
-                'crash_day_of_week': row['crash_day_of_week'],
-                'crash_hour': row['crash_hour'],
-                'intersection_related_i': row['intersection_related_i'],
-                'num_units': row['num_units'],
-                'injuries_total': row['injuries_total'],
-                'injuries_fatal': row['injuries_fatal'],
-                'injuries_incapacitating': row['injuries_incapacitating'],
-                'injuries_non_incapacitating': row['injuries_non_incapacitating'],
-                'injuries_reported_not_evident': row['injuries_reported_not_evident'],
-                'injuries_no_indication': row['injuries_no_indication'],
-                'crash_day_of_month': row['crash_day_of_month'],
-                'damage_min': row['damage_min'],
-                'damage_max': row['damage_max'],
-                'weather_condition': row['weather_condition']
-            })
+        df = df_clean.merge(dim_causa, on='prim_contributory_cause') \
+                     .merge(dim_lesion, on='most_severe_injury') \
+                     .merge(dim_trafico, on=['intersection_related_i', 'traffic_control_device', 'trafficway_type']) \
+                     .merge(dim_clima, on=['lighting_condition', 'roadway_surface_cond', 'weather_condition']) \
+                     .merge(dim_tiempo, on=['crash_day_of_week', 'crash_hour', 'crash_month', 'crash_year'])
 
+        hechos = df[[
+            'crash_type', 'first_crash_type', 'id_causa', 'id_clima', 'id_lesion', 'id_tiempo', 'id_trafico',
+            'num_units', 'injuries_total', 'injuries_fatal', 'injuries_incapacitating',
+            'injuries_non_incapacitating', 'injuries_reported_not_evident',
+            'injuries_no_indication', 'crash_day_of_month', 'damage_min', 'damage_max'
+        ]]
+
+        hechos.to_sql('hechos_accidentes', con=engine_model, if_exists='append', index=False, chunksize=1000)
         print("Datos cargados exitosamente en la tabla de hechos.")
+
         kwargs['ti'].xcom_push(key='load_to_model_status', value=True)
+        return 'next_task'
 
     except Exception as e:
         print(f"Error al cargar los datos al modelo dimensional: {str(e)}")
         kwargs['ti'].xcom_push(key='load_to_model_status', value=False)
         raise AirflowFailException(f"Error al cargar los datos al modelo dimensional: {str(e)}")
-
-    return 'next_task'
-
-
