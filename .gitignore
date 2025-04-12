@@ -173,3 +173,11 @@ cython_debug/
 .pypirc
 
 logs/
+
+airflow.cfg
+airflow.db
+airflow-local-settings.py
+standard_logging.conf
+webserver_config.py
+
+__init__.py
