@@ -174,10 +174,9 @@ cython_debug/
 
 logs/
 
-airflow.cfg
-airflow.db
+airflow/airflow.cfg
+airflow/airflow.db
 airflow-local-settings.py
+airflow/standalone_admin_password.txt
 standard_logging.conf
-webserver_config.py
-
-__init__.py
+airflow/webserver_config.py
