@@ -1,0 +1,51 @@
+road_name,highway,surface,maxspeed_kmh,lit_bin,oneway_bin,highway_footway,highway_living_street,highway_pedestrian,highway_primary,highway_residential,highway_secondary,highway_service,highway_tertiary,highway_trunk,highway_unclassified,surface_asphalt,surface_brick,surface_concrete,surface_paved,surface_paving_stones,surface_sett
+"strøget, copenhagen",,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"yonge street, toronto",,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"tverskaya street, moscow",primary,asphalt,50.0,1,1.0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0
+"market street, san francisco",trunk,asphalt,40.2,1,1.0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0
+"fifth avenue, new york (alt 1)",residential,asphalt,40.2,1,1.0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0
+"myeongdong, seoul",,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"fifth avenue, new york",residential,asphalt,,1,1.0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0
+"nathan road, hong kong",,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"ringstraße, vienna",living_street,concrete,20.0,1,1.0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+"rodeo drive, beverly hills",secondary,asphalt,,0,1.0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0
+"boulevard saint-germain, paris (alt 8)",residential,asphalt,20.0,1,1.0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0
+"kurfurstendamm, berlin",residential,sett,30.0,1,,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1
+"orchard road, singapore (alt 20)",,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"rue de rivoli, paris",living_street,asphalt,20.0,1,1.0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+"las vegas strip, las vegas",footway,,,0,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"rodeo drive, beverly hills (alt 5)",residential,,,0,,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+"oxford street, london",unclassified,sett,32.2,1,1.0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1
+"piccadilly circus, london",residential,asphalt,32.2,1,1.0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0
+"gran via, madrid (alt 13)",residential,asphalt,30.0,1,1.0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0
+"hollywood boulevard, los angeles",,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"sunset boulevard, los angeles (alt 3)",,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"wall street, new york (alt 2)",,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"boulevard saint-germain, paris",living_street,asphalt,20.0,1,1.0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+"columbus avenue, san francisco (alt 15)",,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"queen street, auckland",,asphalt,,0,,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+"george street, sydney",,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"jungmannova street, prague",residential,asphalt,50.0,1,1.0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0
+"rue de rivoli, paris (alt 7)",residential,asphalt,30.0,1,1.0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0
+"orchard road, singapore",primary,asphalt,50.0,1,1.0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0
+"praca xv, rio de janeiro",,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"champs-elysees, paris (alt 6)",tertiary,sett,30.0,1,1.0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1
+"marina boulevard, dubai",,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"pike place, seattle",unclassified,brick,32.2,1,,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0
+"bourbon street, new orleans",pedestrian,paving_stones,,0,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0
+"avenida paulista, sao paulo (alt 21)",residential,asphalt,40.0,1,1.0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0
+"bourbon street, new orleans (alt 25)",residential,asphalt,40.2,0,,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0
+"rua augusta, lisbon (alt 42)",secondary,,,0,1.0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+"la rambla, barcelona (alt 12)",residential,asphalt,30.0,1,1.0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0
+"queen street, toronto",primary,asphalt,60.0,0,,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0
+"karl johans gate, oslo",trunk,asphalt,50.0,0,1.0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0
+"las vegas strip, las vegas (alt 46)",residential,asphalt,,1,,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0
+"gran via, madrid",residential,asphalt,,1,1.0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0
+"abbey road, london",tertiary,,32.2,1,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+"collins street, melbourne (alt 26)",residential,paved,,0,1.0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0
+"marina boulevard, dubai (alt 24)",tertiary,asphalt,60.0,0,1.0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0
+"rua augusta, lisbon",service,sett,20.0,1,0.0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1
+"nanjing road, shanghai",residential,,,0,1.0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+"rua oscar freire, sao paulo",secondary,asphalt,40.0,1,1.0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0
+"via del corso, rome",residential,asphalt,20.0,1,1.0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0
+"istiklal caddesi, istanbul",,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

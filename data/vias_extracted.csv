@@ -1,0 +1,51 @@
+road_name,highway,surface,lit,oneway,maxspeed
+"strøget, copenhagen",,,,,
+"yonge street, toronto",,,,,
+"tverskaya street, moscow",primary,asphalt,yes,yes,50
+"market street, san francisco",trunk,asphalt,yes,yes,25 mph
+"fifth avenue, new york (alt 1)",residential,asphalt,yes,yes,25 mph
+"myeongdong, seoul",,,,,
+"fifth avenue, new york",residential,asphalt,yes,yes,
+"nathan road, hong kong",,,,,
+"ringstraße, vienna",living_street,concrete,yes,yes,20
+"rodeo drive, beverly hills",secondary,asphalt,,yes,
+"boulevard saint-germain, paris (alt 8)",residential,asphalt,yes,yes,20
+"kurfurstendamm, berlin",residential,sett,yes,,30
+"orchard road, singapore (alt 20)",,,,,
+"rue de rivoli, paris",living_street,asphalt,yes,yes,20
+"las vegas strip, las vegas",footway,,,,
+"rodeo drive, beverly hills (alt 5)",residential,,,,
+"oxford street, london",unclassified,sett,yes,yes,20 mph
+"piccadilly circus, london",residential,asphalt,yes,yes,20 mph
+"gran via, madrid (alt 13)",residential,asphalt,yes,yes,30
+"hollywood boulevard, los angeles",,,,,
+"sunset boulevard, los angeles (alt 3)",,,,,
+"wall street, new york (alt 2)",,,,,
+"boulevard saint-germain, paris",living_street,asphalt,yes,yes,20
+"columbus avenue, san francisco (alt 15)",,,,,
+"queen street, auckland",,asphalt,,,
+"george street, sydney",,,,,
+"jungmannova street, prague",residential,asphalt,yes,yes,50
+"rue de rivoli, paris (alt 7)",residential,asphalt,yes,yes,30
+"orchard road, singapore",primary,asphalt,yes,yes,50
+"praca xv, rio de janeiro",,,,,
+"champs-elysees, paris (alt 6)",tertiary,sett,yes,yes,30
+"marina boulevard, dubai",,,,,
+"pike place, seattle",unclassified,brick,yes,,20 mph
+"bourbon street, new orleans",pedestrian,paving_stones,,,
+"avenida paulista, sao paulo (alt 21)",residential,asphalt,yes,yes,40
+"bourbon street, new orleans (alt 25)",residential,asphalt,,,25 mph
+"rua augusta, lisbon (alt 42)",secondary,,,yes,
+"la rambla, barcelona (alt 12)",residential,asphalt,yes,yes,30
+"queen street, toronto",primary,asphalt,,,60
+"karl johans gate, oslo",trunk,asphalt,,yes,50
+"las vegas strip, las vegas (alt 46)",residential,asphalt,yes,,
+"gran via, madrid",residential,asphalt,yes,yes,
+"abbey road, london",tertiary,,yes,,20 mph
+"collins street, melbourne (alt 26)",residential,paved,,yes,
+"marina boulevard, dubai (alt 24)",tertiary,asphalt,,yes,60
+"rua augusta, lisbon",service,sett,yes,no,20
+"nanjing road, shanghai",residential,,,yes,
+"rua oscar freire, sao paulo",secondary,asphalt,yes,yes,40
+"via del corso, rome",residential,asphalt,yes,yes,20
+"istiklal caddesi, istanbul",,,,,

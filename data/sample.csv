@@ -1,0 +1,104 @@
+road_name,latitude,longitude
+"broadway, new york",40.7128,-74.006
+"fifth avenue, new york",40.7754,-73.9655
+"wall street, new york",40.7066,-74.009
+"sunset boulevard, los angeles",34.0983,-118.3295
+"hollywood boulevard, los angeles",34.1016,-118.3267
+"rodeo drive, beverly hills",34.0674,-118.4015
+"champs-elysees, paris",48.8698,2.3074
+"rue de rivoli, paris",48.857,2.3572
+"boulevard saint-germain, paris",48.853,2.337
+"oxford street, london",51.5154,-0.141
+"regent street, london",51.5136,-0.139
+"piccadilly circus, london",51.5101,-0.1337
+"la rambla, barcelona",41.3809,2.1733
+"gran via, madrid",40.4203,-3.7058
+"paseo de la reforma, mexico city",19.4326,-99.1332
+"columbus avenue, san francisco",37.8044,-122.4091
+"lombard street, san francisco",37.8021,-122.4187
+"queen street, toronto",43.651,-79.347
+"yonge street, toronto",43.6677,-79.3948
+"nathan road, hong kong",22.301,114.1722
+"orchard road, singapore",1.3048,103.8318
+"avenida paulista, sao paulo",-23.5614,-46.6559
+"rua oscar freire, sao paulo",-23.564,-46.6721
+"avenida atlantica, rio de janeiro",-22.9711,-43.1822
+"marina boulevard, dubai",25.0806,55.1435
+"bourbon street, new orleans",29.9584,-90.0644
+"collins street, melbourne",-37.814,144.9633
+"queen street, auckland",-36.8485,174.7633
+"george street, sydney",-33.8688,151.2093
+"karl johans gate, oslo",59.9139,10.7522
+"ringstraße, vienna",48.21,16.3669
+"unter den linden, berlin",52.517,13.3889
+"kurfurstendamm, berlin",52.5006,13.3333
+"nevsky prospect, st. petersburg",59.9343,30.3351
+"tverskaya street, moscow",55.764,37.6068
+"istiklal caddesi, istanbul",41.0369,28.9864
+"via del corso, rome",41.9028,12.4833
+"strøget, copenhagen",55.679,12.5714
+"myeongdong, seoul",37.5636,126.9872
+"nanjing road, shanghai",31.2293,121.4748
+"jungmannova street, prague",50.0809,14.4233
+"vaci street, budapest",47.4965,19.0544
+"rua augusta, lisbon",38.7146,-9.1389
+"ste-catherine street, montreal",45.5013,-73.5672
+"praca xv, rio de janeiro",-22.8947,-43.183
+"walk of fame, hollywood",34.1016,-118.3419
+"las vegas strip, las vegas",36.1147,-115.1728
+"mag mile, chicago",41.8916,-87.6245
+"pike place, seattle",47.6101,-122.3421
+"market street, san francisco",37.7749,-122.4194
+"abbey road, london",51.532,-0.1774
+"king’s road, chelsea",51.4836,-0.1701
+"mahatma gandhi road, mumbai",18.9667,72.8194
+"broadway, new york (alt 0)",40.7128,-74.006
+"fifth avenue, new york (alt 1)",40.776399999999995,-73.9645
+"wall street, new york (alt 2)",40.708600000000004,-74.007
+"sunset boulevard, los angeles (alt 3)",34.1013,-118.3265
+"hollywood boulevard, los angeles (alt 4)",34.105599999999995,-118.3227
+"rodeo drive, beverly hills (alt 5)",34.0724,-118.3965
+"champs-elysees, paris (alt 6)",48.8758,2.3133999999999997
+"rue de rivoli, paris (alt 7)",48.864,2.3642000000000003
+"boulevard saint-germain, paris (alt 8)",48.861000000000004,2.345
+"oxford street, london (alt 9)",51.5244,-0.13199999999999998
+"regent street, london (alt 10)",51.523599999999995,-0.129
+"piccadilly circus, london (alt 11)",51.521100000000004,-0.12270000000000002
+"la rambla, barcelona (alt 12)",41.3929,2.1853
+"gran via, madrid (alt 13)",40.433299999999996,-3.6928
+"paseo de la reforma, mexico city (alt 14)",19.4466,-99.1192
+"columbus avenue, san francisco (alt 15)",37.8194,-122.3941
+"lombard street, san francisco (alt 16)",37.8181,-122.4027
+"queen street, toronto (alt 17)",43.668000000000006,-79.33
+"yonge street, toronto (alt 18)",43.685700000000004,-79.3768
+"nathan road, hong kong (alt 19)",22.319999999999997,114.19120000000001
+"orchard road, singapore (alt 20)",1.3248,103.8518
+"avenida paulista, sao paulo (alt 21)",-23.540399999999998,-46.6349
+"rua oscar freire, sao paulo (alt 22)",-23.542,-46.6501
+"avenida atlantica, rio de janeiro (alt 23)",-22.9481,-43.1592
+"marina boulevard, dubai (alt 24)",25.1046,55.167500000000004
+"bourbon street, new orleans (alt 25)",29.9834,-90.0394
+"collins street, melbourne (alt 26)",-37.788,144.98930000000001
+"queen street, auckland (alt 27)",-36.8215,174.79029999999997
+"george street, sydney (alt 28)",-33.8408,151.2373
+"karl johans gate, oslo (alt 29)",59.9429,10.7812
+"ringstraße, vienna (alt 30)",48.24,16.396900000000002
+"unter den linden, berlin (alt 31)",52.548,13.4199
+"kurfurstendamm, berlin (alt 32)",52.532599999999995,13.3653
+"nevsky prospect, st. petersburg (alt 33)",59.9673,30.368100000000002
+"tverskaya street, moscow (alt 34)",55.798,37.6408
+"istiklal caddesi, istanbul (alt 35)",41.0719,29.0214
+"via del corso, rome (alt 36)",41.9388,12.5193
+"strøget, copenhagen (alt 37)",55.716,12.608400000000001
+"myeongdong, seoul (alt 38)",37.6016,127.0252
+"nanjing road, shanghai (alt 39)",31.2683,121.5138
+"jungmannova street, prague (alt 40)",50.1209,14.463299999999998
+"vaci street, budapest (alt 41)",47.537499999999994,19.0954
+"rua augusta, lisbon (alt 42)",38.7566,-9.0969
+"ste-catherine street, montreal (alt 43)",45.5443,-73.5242
+"praca xv, rio de janeiro (alt 44)",-22.8507,-43.139
+"walk of fame, hollywood (alt 45)",34.1466,-118.2969
+"las vegas strip, las vegas (alt 46)",36.1607,-115.12679999999999
+"mag mile, chicago (alt 47)",41.938599999999994,-87.5775
+"pike place, seattle (alt 48)",47.658100000000005,-122.2941
+"market street, san francisco (alt 49)",37.8239,-122.37039999999999
